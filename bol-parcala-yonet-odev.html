@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="JQuery/jquery-3.6.0.min.js"></script>
+    <title>URL Bölümlere Parcalama</title>
+</head>
+<body>
+    <script>
+        var url = "https://huseyindasci.1ticaret.com/srv/service/filter/get/filters-variants-brands-categories-price-models-suppliers?link=kisisel-bakim";
+        var prtclArray = url.split("://");
+        var prtcl = prtclArray[prtclArray.length - 2];
+        var htnameArray = prtclArray[prtclArray.length - 1].split("/");
+        var htname = htnameArray[htnameArray.length - 6];
+        var ptnameArray = htnameArray[htnameArray.length - 1].split("?");
+        var ptnameValueArray = ptnameArray[ptnameArray.length - 2].split("-");
+        var endParameter = ptnameArray[ptnameArray.length - 1];
+        var ptname = prtclArray[prtclArray.length - 1].slice(htname.length,prtclArray[prtclArray.length - 1].length);
+        var ptnameArray2 = ptname.split("?");
+        var ptname2 = ptnameArray2[ptnameArray2.length - 2];
+
+        var dv1 = document.createElement("div");
+        var tbl = document.createElement("table");
+        var tr1 = document.createElement("tr");
+        var td1 = document.createElement("td");
+        var td2 = document.createElement("td");
+        var td3 = document.createElement("td");
+        var td4 = document.createElement("td");
+        var tdp1 = document.createElement("p");
+        var tdp2 = document.createElement("p");
+        var tdp3 = document.createElement("p");
+        var tdp4 = document.createElement("p");
+
+        dv1.appendChild(tbl);
+        tbl.appendChild(tr1);
+        tr1.appendChild(td1);
+        td1.appendChild(tdp1);
+        tr1.appendChild(td2);
+        td2.appendChild(tdp2);
+        tr1.appendChild(td3);
+        td3.appendChild(tdp3);
+        tr1.appendChild(td4);
+        td4.appendChild(tdp4);
+
+        document.body.appendChild(dv1);
+
+        let textUrl = document.createTextNode(url);
+        let textprtcl = document.createTextNode(prtcl);
+        let texthtname = document.createTextNode(htname);
+        let textptname = document.createTextNode(ptname2);
+        let tdp1Txt = document.createTextNode("URL");
+        let tdp2Txt = document.createTextNode("PROTOCOL");
+        let tdp3Txt = document.createTextNode("HOSTNAME");
+        let tdp4Txt = document.createTextNode("PATHNAME");
+
+        td1.appendChild(textUrl);
+        td2.appendChild(textprtcl);
+        td3.appendChild(texthtname);
+        td4.appendChild(textptname);
+        tdp1.appendChild(tdp1Txt);
+        tdp2.appendChild(tdp2Txt);
+        tdp3.appendChild(tdp3Txt);
+        tdp4.appendChild(tdp4Txt);
+
+        dv1.setAttribute("style", "align:center; border: 5px solid gray; width: auto; height: auto; padding: 10px; margin: 50px;");
+        tbl.setAttribute("style", "align:center; border: 4px solid black; padding: 10px; colspan: 4");
+        td1.setAttribute("style", "border: 3px solid red; padding: 0 10px 10px 10px; font-weight: bolder;");
+        td2.setAttribute("style", "border: 3px solid red; padding: 0 10px 10px 10px; font-weight: bolder;");
+        td3.setAttribute("style", "border: 3px solid red; padding: 0 10px 10px 10px; font-weight: bolder;");
+        td4.setAttribute("style", "border: 3px solid red; padding: 0 10px 10px 10px; font-weight: bolder;");
+        tdp1.setAttribute("style", "text-align: center; text-height: bold; border-bottom: 2px solid blue; padding: 0 0 18px 0;");
+        tdp2.setAttribute("style", "text-align: center; text-height: bold; border-bottom: 2px solid blue; padding: 0 0 0 0;");
+        tdp3.setAttribute("style", "text-align: center; text-height: bold; border-bottom: 2px solid blue; padding: 0 0 0 0;");
+        tdp4.setAttribute("style", "text-align: center; text-height: bold; border-bottom: 2px solid blue; padding: 0 0 18px 0;");
+    </script>
+</body>
+</html>
